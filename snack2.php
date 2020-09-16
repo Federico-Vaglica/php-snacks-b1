@@ -21,16 +21,22 @@
     <?php $data = $_GET;?>
 
     <?php 
-    if(empty($data['name'])||empty($data['email'])|| empty($data['age'])):
+    $name = $data['name'];
+    $email = $data['email'];
+    $age = $data['age'];
+
+
+    
+    if(empty($name) || empty($email)|| empty($age)):
         echo 'Accesso Negato: devi inserire il tuo Nome , la tua email e quanti anni hai';
-        elseif (strlen($data['name']) < 3):
+        elseif ( strlen($name) < 3):
              echo "Il tuo nome e' troppo corto";
-        elseif(strpos($data['email'],'.') === false || strpos($data['email'],'@')=== false):
+        elseif(strpos($email,'.') === false || strpos($email,'@')=== false):
             echo "Email non valida";
-        elseif(is_numeric($data['age'])=== false):
+        elseif(is_numeric($age)=== false):
             echo "Il valore che hai inserito non e' un numero";
         else:
-            echo "Benvenuto ".$data['name']." La tua email e' ".$data['email']." Ed hai: ".$data['age']." anni";
+            echo "Benvenuto ".$name." La tua email e' ".$email." Ed hai: ".$age." anni";
 
         endif;    
       
